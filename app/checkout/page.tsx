@@ -38,7 +38,7 @@ export default function CheckoutPage() {
         queryFn: async () => {
             if (!activeAccount?.address) return null;
             console.log('[CHECKOUT-DEBUG] Fetching user profile for:', activeAccount.address);
-            const res = await fetch(`http://localhost:3000/api/user/${activeAccount.address}?t=${Date.now()}`);
+            const res = await fetch(`https://app.irion.network/api/user/${activeAccount.address}?t=${Date.now()}`);
             console.log('[CHECKOUT-DEBUG] Profile response status:', res.status);
             if (!res.ok) throw new Error('Failed to fetch profile');
             const data = await res.json();
@@ -250,7 +250,7 @@ export default function CheckoutPage() {
                                     </div>
                                 </div>
                                 <p className="text-[11px] text-white/60 leading-relaxed font-medium">
-                                    Buy now, pay later with your Irion Credit Limit. Zero-collateral, sub-second settlement on LocalNet.
+                                    Buy now, pay later with your Irion Credit Limit. Zero-collateral, sub-second settlement on Testnet.
                                 </p>
                                 {loading && (
                                     <div className="absolute inset-0 bg-black/60 flex items-center justify-center backdrop-blur-sm">
@@ -303,7 +303,7 @@ export default function CheckoutPage() {
                     <div className="flex items-center gap-3 p-4 bg-white/5 rounded border border-white/10">
                         <ShieldCheck className="w-5 h-5 text-green-500" />
                         <span className="text-[10px] font-bold text-white/60 leading-tight uppercase tracking-wider">
-                            Secured by LocalNet Native Verification & Irion Escrow Protocol
+                            Secured by Testnet Native Verification & Irion Escrow Protocol
                         </span>
                     </div>
                 </div>
