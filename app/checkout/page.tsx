@@ -162,7 +162,7 @@ export default function CheckoutPage() {
                         {paymentDetails.txHash && (
                             <div className="flex flex-col gap-1">
                                 <span className="text-[10px] uppercase font-bold text-white/40 tracking-widest">Tx_Hash</span>
-                                <span className="text-sm font-black font-mono truncate">{paymentDetails.txHash}</span>
+                                <a href={`https://lora.algokit.io/testnet/transaction/${paymentDetails.txHash}`} target="_blank" rel="noopener noreferrer" className="text-sm font-black font-mono truncate hover:text-green-300 transition-colors underline">{paymentDetails.txHash}</a>
                             </div>
                         )}
                     </div>
