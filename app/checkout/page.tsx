@@ -38,7 +38,8 @@ export default function CheckoutPage() {
         queryFn: async () => {
             if (!activeAccount?.address) return null;
             console.log('[CHECKOUT-DEBUG] Fetching user profile for:', activeAccount.address);
-            const res = await fetch(`https://app.irion.network/api/user/${activeAccount.address}?t=${Date.now()}`);
+            const origin = typeof window !== 'undefined' && window.location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://app.irion.network';
+            const res = await fetch(`${origin}/api/user/${activeAccount.address}?t=${Date.now()}`);
             console.log('[CHECKOUT-DEBUG] Profile response status:', res.status);
             if (!res.ok) throw new Error('Failed to fetch profile');
             const data = await res.json();
